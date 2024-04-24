@@ -1,0 +1,55 @@
+@import "../../../../vendor/filament/filament/resources/css/theme.css";
+
+@config './tailwind.config.js';
+
+.fi-sidebar {
+    /*@apply bg-green-800 bg-opacity-10 border-r-8 border-green-800 border-opacity-10 !important;*/
+    @apply bg-transparent !important;
+}
+
+.fi-sidebar-header {
+    @apply bg-transparent shadow-transparent !important;
+}
+
+.fi-sidebar-item-label {
+    @apply text-[#192587] hover:bg-transparent !important;
+}
+
+.fi-sidebar-item {
+    @apply bg-transparent !important;
+}
+.fi-sidebar-item-button {
+    @apply bg-transparent hover:bg-[#7988d2] !important;
+}
+
+.fi-sidebar-item .fi-active .fi-sidebar-item-active {
+    @apply hover:bg-transparent border-r-4 border-[#192587] text-[#192587] bg-transparent !important;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-label {
+    @apply text-[#192587] hover:bg-transparent !important;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-button {
+    @apply bg-[#7988d2] hover:bg-opacity-30 rounded-lg border-r-4 border-[#192587] text-[#192587] !important;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-icon {
+    @apply p-1 rounded-lg bg-opacity-20 shadow-md border border-[#192587] group-hover:border-transparent text-[#192587] !important;
+}
+
+.fi-sidebar-item-icon {
+    @apply p-1 rounded-lg bg-opacity-20 shadow-md border border-[#192587] group-hover:border-transparent text-[#192587] !important;
+}
+
+.fi-sidebar-group-label {
+    @apply text-gray-600 !important;
+}
+
+.fi-topbar nav {
+    @apply bg-transparent !important;
+}
+
+.fi-body {
+    @apply bg-[#c6cbec] !important;
+}
