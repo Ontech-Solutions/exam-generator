@@ -10,6 +10,7 @@ class ExamQuestion extends Model
     use HasFactory;
 
     protected $fillable = [
+        "program_id",
         "exam_category_id",
         "year",
         "month",
@@ -19,6 +20,7 @@ class ExamQuestion extends Model
         "option_b",
         "option_c",
         "option_d",
+        "option_e",
         "correct_answer",
         "user_id"
     ];

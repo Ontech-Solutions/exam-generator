@@ -17,7 +17,7 @@ class ExamQuestionSeeder extends Seeder
     {
         DB::table("exam_questions")->insert([
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2004",
                 "month" => "March",
                 "image" => "null",
@@ -30,7 +30,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2006",
                 "month" => "June",
                 "image" => "null",
@@ -43,7 +43,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2000",
                 "month" => "January",
                 "image" => "null",
@@ -56,7 +56,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2000",
                 "month" => "February",
                 "image" => "null",
@@ -69,7 +69,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2000",
                 "month" => "February",
                 "image" => "null",
@@ -82,7 +82,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2001",
                 "month" => "May",
                 "image" => "null",
@@ -95,7 +95,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2001",
                 "month" => "July",
                 "image" => "null",
@@ -108,7 +108,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2002",
                 "month" => "July",
                 "image" => "null",
@@ -121,7 +121,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2002",
                 "month" => "July",
                 "image" => "null",
@@ -134,7 +134,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 1,
+                "program_id" => 1,
                 "year" => "2010",
                 "month" => "September",
                 "image" => "null",
@@ -147,7 +147,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2010",
                 "month" => "January",
                 "image" => "null",
@@ -160,7 +160,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2011",
                 "month" => "February",
                 "image" => "null",
@@ -173,7 +173,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2012",
                 "month" => "August",
                 "image" => "null",
@@ -186,7 +186,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2014",
                 "month" => "October",
                 "image" => "null",
@@ -199,7 +199,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2014",
                 "month" => "December",
                 "image" => "null",
@@ -212,7 +212,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2015",
                 "month" => "January",
                 "image" => "null",
@@ -225,7 +225,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2015",
                 "month" => "February",
                 "image" => "null",
@@ -238,7 +238,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2015",
                 "month" => "March",
                 "image" => "null",
@@ -251,7 +251,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2015",
                 "month" => "November",
                 "image" => "null",
@@ -264,7 +264,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 2,
+                "program_id" => 2,
                 "year" => "2016",
                 "month" => "January",
                 "image" => "null",
@@ -277,7 +277,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2017",
                 "month" => "April",
                 "image" => "null",
@@ -290,7 +290,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2017",
                 "month" => "December",
                 "image" => "null",
@@ -303,7 +303,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2018",
                 "month" => "January",
                 "image" => "null",
@@ -316,7 +316,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2019",
                 "month" => "January",
                 "image" => "null",
@@ -329,7 +329,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2019",
                 "month" => "January",
                 "image" => "null",
@@ -342,7 +342,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2020",
                 "month" => "February",
                 "image" => "null",
@@ -355,7 +355,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2020",
                 "month" => "December",
                 "image" => "null",
@@ -368,7 +368,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2003",
                 "month" => "December",
                 "image" => "null",
@@ -381,7 +381,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2004",
                 "month" => "September",
                 "image" => "null",
@@ -394,7 +394,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 3,
+                "program_id" => 3,
                 "year" => "2005",
                 "month" => "September",
                 "image" => "null",
@@ -407,7 +407,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 1
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2007",
                 "month" => "January",
                 "image" => "null",
@@ -420,7 +420,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2008",
                 "month" => "February",
                 "image" => "null",
@@ -433,7 +433,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2009",
                 "month" => "December",
                 "image" => "null",
@@ -446,7 +446,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2010",
                 "month" => "June",
                 "image" => "null",
@@ -459,7 +459,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 2
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2019",
                 "month" => "June",
                 "image" => "null",
@@ -472,7 +472,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2020",
                 "month" => "June",
                 "image" => "null",
@@ -485,7 +485,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2021",
                 "month" => "June",
                 "image" => "null",
@@ -498,7 +498,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2022",
                 "month" => "June",
                 "image" => "null",
@@ -511,7 +511,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2023",
                 "month" => "June",
                 "image" => "null",
@@ -524,7 +524,7 @@ class ExamQuestionSeeder extends Seeder
                 "user_id" => 3
             ],
             [
-                "exam_category_id" => 4,
+                "program_id" => 4,
                 "year" => "2024",
                 "month" => "January",
                 "image" => "null",

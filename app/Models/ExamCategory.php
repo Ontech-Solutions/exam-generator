@@ -12,4 +12,11 @@ class ExamCategory extends Model
     protected $fillable = [
         "name"
     ];
+
+    protected $searchableFields = ['*'];
+
+    public function competencies()
+    {
+        return $this->hasMany(Competency::class);
+    }
 }

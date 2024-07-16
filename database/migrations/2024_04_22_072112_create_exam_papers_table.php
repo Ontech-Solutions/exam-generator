@@ -13,18 +13,21 @@ return new class extends Migration
     {
         Schema::create('exam_papers', function (Blueprint $table) {
             $table->id();
-            $table->string("ref_number");
-            $table->unsignedInteger("exam_category_id");
-            $table->string("year");
-            $table->string("month");
+            $table->string("ref_number")->nullable();
+            $table->unsignedInteger("program_id")->nullable();
+            $table->unsignedInteger("exam_category_id")->nullable();
+            $table->unsignedInteger("competency_id")->nullable();
+            $table->string("year")->nullable();
+            $table->string("month")->nullable();
             $table->string("image")->nullable();
-            $table->text("question");
-            $table->string("option_a");
-            $table->string("option_b");
-            $table->string("option_c");
-            $table->string("option_d");
-            $table->string("correct_answer");
-            $table->unsignedInteger("user_id");
+            $table->text("question")->nullable();
+            $table->string("option_a")->nullable();
+            $table->string("option_b")->nullable();
+            $table->string("option_c")->nullable();
+            $table->string("option_d")->nullable();
+            $table->string("option_e")->nullable();
+            $table->string("correct_answer")->nullable();
+            $table->unsignedInteger("user_id")->nullable();
             $table->timestamps();
         });
     }

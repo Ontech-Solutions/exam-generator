@@ -21,9 +21,14 @@ class ExamCategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 6;
 
     protected static ?string $navigationGroup = 'System Settings';
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
 
     public static function form(Form $form): Form
     {
@@ -33,7 +38,7 @@ class ExamCategoryResource extends Resource
                     ->description('Create a new category')
                     ->aside()
                     ->schema([
-                        TextInput::make('name')->unique(ignoreRecord: true)->required(),
+                        TextInput::make('name')->required(),
                     ])
             ]);
     }

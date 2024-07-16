@@ -4,11 +4,15 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ExamQuestionResource\Pages;
 use App\Filament\Resources\ExamQuestionResource\RelationManagers;
+use App\Models\Competency;
 use App\Models\ExamCategory;
 use App\Models\ExamQuestion;
+use App\Models\Program;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -38,10 +42,25 @@ class ExamQuestionResource extends Resource
                     ->schema([
                         Forms\Components\Grid::make(3)
                             ->schema([
-                                Forms\Components\Select::make("exam_category_id")
-                                    ->label("Exam Category")
-                                    ->required()
-                                    ->options(ExamCategory::all()->pluck('name', 'id')->toArray()),
+                                Select::make('exam_category_id')
+                                    ->label('Program')
+                                    ->options(ExamCategory::all()->pluck('name', 'id')->toArray())
+                                    ->reactive()
+                                    ->required(),
+                                Select::make('competency_id')
+                                    ->label('Competency')
+                                    ->options(function (callable $get) {
+                                        $exam_category = ExamCategory::find($get('exam_category_id'));
+                                        if (!$exam_category) {
+                                            return Competency::all()->pluck('name', 'id');
+                                        }
+                                        return Competency::where('exam_category_id', $exam_category->id)->pluck('name', 'id');
+                                    })
+                                    ->reactive()
+                                    ->required(),
+                            ]),
+                        Forms\Components\Grid::make(2)
+                            ->schema([
                                 TextInput::make('year')->required(),
                                 Forms\Components\Select::make("month")
                                     ->options([
@@ -59,7 +78,7 @@ class ExamQuestionResource extends Resource
                                         "December" => "December"
                                     ])
                                 ->required()
-                            ]),
+                            ]),    
                         Forms\Components\Textarea::make("question")
                             ->required(),
                         Forms\Components\Grid::make(2)
@@ -80,9 +99,16 @@ class ExamQuestionResource extends Resource
                                     ->label("Option D")
                                     ->required(),
                             ]),
-                        TextInput::make('correct_answer')
-                            ->label("Correct Answer")
-                            ->required(),
+                        Forms\Components\Grid::make(2)
+                            ->schema([
+                                TextInput::make('option_e')
+                                    ->label("Option E")
+                                    ->required(),
+                                    TextInput::make('correct_answer')
+                                    ->label("Correct Answer")
+                                    ->required(),
+                            ]),
+                        
 
                     ])
             ]);
@@ -93,9 +119,17 @@ class ExamQuestionResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('exam_category_id')
-                    ->label("Category")
+                    ->label("Program")
                     ->formatStateUsing(function($state){
                         return ExamCategory::where('id', $state)->first()->name  ?? "";
+                    })
+                    ->wrap()
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('competency_id')
+                    ->label("Competency")
+                    ->formatStateUsing(function($state){
+                        return Competency::where('id', $state)->first()->name  ?? "";
                     })
                     ->wrap()
                     ->searchable()
@@ -136,15 +170,21 @@ class ExamQuestionResource extends Resource
                     ->wrap()
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('option_e')
+                    ->label("Option E")
+                    ->wrap()
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('correct_answer')
                     ->label("Correct Answer")
                     ->wrap()
+                    ->hidden()
                     ->searchable()
                     ->sortable(),
             ])
             ->filters([
                 SelectFilter::make('exam_category_id')
-                    ->label("Exam Category")
+                    ->label("Program")
                     ->multiple()
                     ->options(ExamCategory::all()->pluck('name','id')->toArray()),
             ])

@@ -13,19 +13,108 @@ class ExamCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table("exam_categories")->insert([
+        DB::table('exam_categories')->insert([
             [
-                "name" => "Pharmacology"
+                'name' => 'Medical Doctors',
+        
             ],
             [
-                "name" => "Medical-Surgical Nursing"
+                'name' => 'Clinical Ophthalmic Officers'
             ],
             [
-                "name" => "Basic Nursing Skills"
+                'name' => 'Optometrists'
             ],
             [
-                "name" => "Anatomy and Physiology"
+                'name' => 'Optometry Technologists'
             ],
+            [
+                'name' => 'Biomedical Scientific Officers'
+            ],
+            [
+                'name' => 'Medical Laboratory Technologists'
+            ],
+            [
+                'name' => 'Pharmacists'
+            ],
+            [
+                'name' => 'Pharmacy Technologists'
+            ],
+            [
+                'name' => 'Dental Surgeons'
+            ],
+            [
+                'name' => 'Dental Therapists'
+            ],
+            [
+                'name' => 'Dental Technologists'
+            ],
+            [
+                'name' => 'Dental Assistants'
+            ],
+            [
+                'name' => 'Radiographers'
+            ],
+            [
+                'name' => 'Radiation Therapists'
+            ],
+            [
+                'name' => 'Radiography Technologists'
+            ],
+            [
+                'name' => 'Medical Licentiates'
+            ],
+            [
+                'name' => 'Mental Health Officers'
+            ],
+            [
+                'name' => 'Clinical Officers General'
+            ],
+            [
+                'name' => 'Clinical Officers Psychiatry'
+            ],
+            [
+                'name' => 'Clinical Anaesthettic Officers'
+            ],
+            [
+                'name' => 'Advanced Paramedical Anaesthesia'
+            ],
+            [
+                'name' => 'Emergency Care Officers'
+            ],
+            [
+                'name' => 'Environmental Health Officers'
+            ],
+            [
+                'name' => 'Public Health Officers'
+            ],
+            [
+                'name' => 'Environmental Health Technologists'
+            ],
+            [
+                'name' => 'Community Health Assistants'
+            ],
+            [
+                'name' => 'Physiotherapists'
+            ],
+            [
+                'name' => 'Physiotherapy Technologists'
+            ],
+            [
+                'name' => 'Nutritionists'
+            ],
+            [
+                'name' => 'Nutrition Technologists'
+            ],
+            [
+                'name' => 'Clinical Psychologists'
+            ],
+            [
+                'name' => 'Clinical Technologists'
+            ],
+            [
+                'name' => 'Orthopaedic Technologists'
+            ]
         ]);
+        
     }
 }

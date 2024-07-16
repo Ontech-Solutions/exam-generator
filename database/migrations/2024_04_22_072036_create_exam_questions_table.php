@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('exam_questions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger("exam_category_id");
+            $table->unsignedInteger("program_id");
             $table->string("year");
             $table->string("month");
             $table->string("image")->nullable();

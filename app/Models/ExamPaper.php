@@ -12,6 +12,7 @@ class ExamPaper extends Model
     protected $fillable = [
         "ref_number",
         "exam_category_id",
+        "program_id",
         "year",
         "month",
         "image",
@@ -20,6 +21,7 @@ class ExamPaper extends Model
         "option_b",
         "option_c",
         "option_d",
+        "option_e",
         "correct_answer",
         "user_id"
     ];
