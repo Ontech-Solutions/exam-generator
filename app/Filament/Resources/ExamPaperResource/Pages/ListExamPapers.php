@@ -3,9 +3,12 @@
 namespace App\Filament\Resources\ExamPaperResource\Pages;
 
 use App\Filament\Resources\ExamPaperResource;
+use App\Models\Competency;
 use App\Models\ExamPaper;
 use App\Models\ExamQuestion;
+use App\Models\Program;
 use Filament\Actions;
+use Filament\Forms\Components\Select;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\Auth;
@@ -26,11 +29,17 @@ class ListExamPapers extends ListRecords
                     return 'You are about to generate a new Exam Paper. Confirm to proceed or cancel';
                 })
                 ->modalSubmitActionLabel('Yes, Confirm')
-                ->action(function(){
+                ->form([
+                    Select::make('program_id')
+                        ->label('Choose Exam Program')
+                        ->required()
+                        ->options(Program::all()->pluck('name','id')->toArray())
+                ])
+                ->action(function($data){
                     $new_ref_number = $this->generateRefNumber();
 
                     // Get total count of questions
-                    $totalQuestions = ExamQuestion::count();
+                    $totalQuestions = ExamQuestion::where('program_id', $data['program_id'])->count();
 
                     // Check if there are enough questions in the database
                     if ($totalQuestions < 15) {
