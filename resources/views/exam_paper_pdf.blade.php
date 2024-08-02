@@ -15,7 +15,7 @@
         <tr>
             <td style="border: 1px solid #ffffff; padding: 8px; width: 370px; font-weight: bold; margin-bottom: 40px; margin-top: 40px;">{{ $loop->iteration }}. {{ $exam->question}}</td>
         </tr>
-        <tr><td>@if($exam->image == "null")<div></div>@else<img src="{{ url($exam->image) }}" style="height: 100px">@endif</td></tr>
+{{--        <tr><td>@if($exam->image == "null")<div></div>@else<img src="{{ url($exam->image) }}" style="height: 100px">@endif</td></tr>--}}
         <tr>
             <td><div>A. {{ $exam->option_a }}</div></td>
             <td><div>B. {{ $exam->option_b }}</div></td>
