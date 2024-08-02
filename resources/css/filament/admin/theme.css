@@ -4,7 +4,7 @@
 
 .fi-sidebar {
     /*@apply bg-green-800 bg-opacity-10 border-r-8 border-green-800 border-opacity-10 !important;*/
-    @apply bg-transparent !important;
+    @apply bg-[#c6cbec] !important;
 }
 
 .fi-sidebar-header {

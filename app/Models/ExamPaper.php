@@ -13,6 +13,7 @@ class ExamPaper extends Model
         "ref_number",
         "competency_id",
         "program_id",
+        "exam_sitting_date",
         "year",
         "month",
         "image",

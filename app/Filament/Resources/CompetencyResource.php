@@ -23,6 +23,8 @@ class CompetencyResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'System Settings';
+
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();

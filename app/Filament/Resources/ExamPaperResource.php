@@ -6,6 +6,7 @@ use App\Filament\Resources\ExamPaperResource\Pages;
 use App\Filament\Resources\ExamPaperResource\RelationManagers;
 use App\Models\ExamPaper;
 use App\Models\ExamTotalQuestion;
+use App\Models\Program;
 use App\Models\User;
 use Doctrine\DBAL\Schema\Column;
 use Filament\Forms;
@@ -31,7 +32,7 @@ class ExamPaperResource extends Resource
     {
         $query = parent::getEloquentQuery();
 
-        return $query->select('id', 'ref_number', 'program_id', 'year', 'month', 'image', 'question', 'option_a', 'option_b','option_c','option_d','option_e','correct_answer', 'user_id','created_at','updated_at')
+        return $query->select('id', 'ref_number', 'program_id', 'year', 'month', 'image', 'question','exam_sitting_date', 'option_a', 'option_b','option_c','option_d','option_e','correct_answer', 'user_id','created_at','updated_at')
             ->groupBy('ref_number')
             ->orderBy('updated_at', 'desc');
     }
@@ -56,12 +57,13 @@ class ExamPaperResource extends Resource
                 Tables\Columns\TextColumn::make('ref_number')
                     ->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("program_id")
-                    ->label("Program"),
-                Tables\Columns\TextColumn::make('year')
-                    ->label("Total Questions")
+                    ->label("Program")
                     ->formatStateUsing(function ($record){
-                        return ExamPaper::where('ref_number', $record->ref_number)->count()."/".ExamTotalQuestion::where("name", "default")->first()->total_questions ?? "0/".ExamTotalQuestion::where("name", "default")->first()->total_questions;
-                    })
+                        return Program::where('id', $record->program_id)->first()->name ?? "";
+                    }),
+                Tables\Columns\TextColumn::make('exam_sitting_date')
+                    ->label("Sitting Date/Time")
+                ->dateTime()
                     ->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('user_id')
                     ->formatStateUsing(function ($state){

@@ -9,6 +9,7 @@ use App\Models\ExamQuestion;
 use App\Models\ExamTotalQuestion;
 use App\Models\Program;
 use Filament\Actions;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
@@ -35,7 +36,9 @@ class ListExamPapers extends ListRecords
                     Select::make('program_id')
                         ->label('Choose Exam Program')
                         ->required()
-                        ->options(Program::all()->pluck('name', 'id')->toArray())
+                        ->options(Program::all()->pluck('name', 'id')->toArray()),
+                    DateTimePicker::make("exam_sitting_date")
+
                 ])
                 ->action(function ($data) {
                     $new_ref_number = $this->generateRefNumber();
@@ -99,6 +102,7 @@ class ListExamPapers extends ListRecords
                         // Create a new ExamPaper record and populate its fields
                         $examPaper = new ExamPaper();
                         $examPaper->ref_number = $new_ref_number;
+                        $examPaper->exam_sitting_date = $data["exam_sitting_date"];
                         $examPaper->program_id = $question->program_id;
                         $examPaper->competency_id = $question->competency_id;
                         $examPaper->year = $question->year;

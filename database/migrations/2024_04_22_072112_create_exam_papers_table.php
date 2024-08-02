@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedInteger("competency_id")->nullable();
             $table->string("year")->nullable();
             $table->string("month")->nullable();
+            $table->timestamp("exam_sitting_date")->nullable();
             $table->string("image")->nullable();
             $table->text("question")->nullable();
             $table->string("option_a")->nullable();

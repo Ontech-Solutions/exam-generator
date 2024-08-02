@@ -22,6 +22,8 @@ class ExamVenueResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'System Settings';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -38,7 +40,7 @@ class ExamVenueResource extends Resource
                         ])
                         ->required(),
                     TextInput::make('center')->required(),
-                    
+
                 ])
         ]);
     }

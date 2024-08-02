@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Exam Generator</title>
+    <title>NatSave AML | Learning Portal</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset("apple-touch-icon.png")}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset("favicon-32x32.png")}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset("favicon-16x16.png")}}">
+    <link rel="manifest" href="{{asset("site.webmanifest")}}">
+    <link rel="mask-icon" href="{{asset("safari-pinned-tab.svg")}}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-        @vite('resources/css/app.css')
-    </head>
-    <body class="font-sans">
-        <section>
-            <header class="text-gray-600 body-font">
-                <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                        <img src="{{ asset('imgs/logo.png') }}" class="h-10">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
+    @vite('resources/css/app.css')
+</head>
+<body class="font-sans antialiased h-screen">
+<div class="h-screen w-full relative">
+    <img src="{{ asset('imgs/bg.svg') }}" class="w-full h-screen object-cover">
+
+</div>
+<div class="h-screen w-full absolute top-0 left-0">
+    <div class="w-full h-[90px] flex flex-col md:flex-row items-center md:justify-between px-6 md:px-10 mt-16 md:mt-6 mb-20 md:mb-0">
+        <div class="flex flex-row items-center mb-20 md:mb-0">
+            <img src="{{ asset('imgs/logo.png') }}" class="h-[40px] sm:h-[50px] md:h-[70px]">
+        </div>
+        <div>
+            <a href="/admin/login" class="rounded-full border-4 border-blue-800 bg-transparent text-blue-800 hover:border-yellow-900 hover:text-yellow-900 hover:cursor-pointer px-10 py-2">Get Started | Login</a>
+        </div>
+    </div>
+    <div class="h-full w-full flex flex-col md:flex-row items-center px-6 md:px-20 py-10 md:py-1">
+        <div class="w-full md:w-1/2 text-center md:text-start">
+            <div class="font-Montserrat text-4xl md:text-5xl lg:text-6xl font-semibold md:font-extrabold mb-10">Automated Examination Paper Randomization & Generation App</div>
+
+            <div class="font-Montserrat flex flex-row items-start space-x-2 w-full justify-center">
+                <div class="text-xs md:text-sm font-semibold">Powered By</div>
+                <div>
+                    <a href="https://ontech.co.zm" target="_blank">
+                        <img src="{{ asset('imgs/logo_small.png') }}" class="h-10">
                     </a>
-                    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                        <a class="mr-5 hover:text-gray-900">FAQ</a>
-                        <a class="mr-5 hover:text-gray-900">User Manual</a>
-                    </nav>
-                    <a href="/admin" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Log in</a>
                 </div>
-            </header>
 
-        </section>
-        <section class="text-gray-600 body-font">
-            <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-                <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Welcome to Exam Auto
-                        <br class="hidden lg:inline-block">Question Generator
-                    </h1>
-                    <p class="mb-8 leading-relaxed">Are you tired of spending countless hours crafting exam questions? Say goodbye to manual question generation and hello to the future of assessment creation with Exam Auto Question Generator. Our cutting-edge platform utilizes advanced algorithms and natural language processing to generate high-quality exam questions in minutes, saving you time and effort while ensuring the integrity and validity of your assessments.</p>
-                    <div class="flex justify-center">
-                        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-                        <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button>
-                    </div>
-                </div>
-                <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                    <img class="object-cover object-center rounded" alt="hero" src="{{ asset('imgs/writing.png') }}">
-                </div>
             </div>
-        </section>
-    </body>
+        </div>
+
+    </div>
+
+</div>
+</body>
 </html>
