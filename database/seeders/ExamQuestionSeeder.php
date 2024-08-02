@@ -18,6 +18,7 @@ class ExamQuestionSeeder extends Seeder
         DB::table("exam_questions")->insert([
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2004",
                 "month" => "March",
                 "image" => "null",
@@ -26,11 +27,13 @@ class ExamQuestionSeeder extends Seeder
                 "option_b" => "b) Lisinopril",
                 "option_c" => "c) Metformin",
                 "option_d" => "d) Insulin",
+                "option_e" => "d) Insulin",
                 "correct_answer" => "Answer: b) Lisinopril",
                 "user_id" => 1
             ],
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2006",
                 "month" => "June",
                 "image" => "null",
@@ -39,11 +42,13 @@ class ExamQuestionSeeder extends Seeder
                 "option_b" => "b) Antipyretic",
                 "option_c" => "c) Antiplatelet",
                 "option_d" => "d) Antibiotic",
+                "option_e" => "d) Insulin",
                 "correct_answer" => "Answer: b) Antipyretic",
                 "user_id" => 2
             ],
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2000",
                 "month" => "January",
                 "image" => "null",
@@ -52,11 +57,13 @@ class ExamQuestionSeeder extends Seeder
                 "option_b" => "b) Atropine",
                 "option_c" => "c) Epinephrine",
                 "option_d" => "d) Digoxin",
+                "option_e" => "d) Insulin",
                 "correct_answer" => "Answer: a) Naloxone",
                 "user_id" => 3
             ],
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2000",
                 "month" => "February",
                 "image" => "null",
@@ -65,11 +72,13 @@ class ExamQuestionSeeder extends Seeder
                 "option_b" => "b) Hypoglycemia",
                 "option_c" => "c) Gastrointestinal bleeding",
                 "option_d" => "d) Bradycardia",
+                "option_e" => "d) Insulin",
                 "correct_answer" => "Answer: c) Gastrointestinal bleeding",
                 "user_id" => 1
             ],
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2000",
                 "month" => "February",
                 "image" => "null",
@@ -78,11 +87,13 @@ class ExamQuestionSeeder extends Seeder
                 "option_b" => "b) Short-acting insulin",
                 "option_c" => "c) Intermediate-acting insulin",
                 "option_d" => "d) Long-acting insulin",
+                "option_e" => "d) Insulin",
                 "correct_answer" => "Answer: d) Long-acting insulin",
                 "user_id" => 2
             ],
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2001",
                 "month" => "May",
                 "image" => "null",
@@ -96,6 +107,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2001",
                 "month" => "July",
                 "image" => "null",
@@ -109,6 +121,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2002",
                 "month" => "July",
                 "image" => "null",
@@ -122,6 +135,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2002",
                 "month" => "July",
                 "image" => "null",
@@ -135,6 +149,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 1,
+                "competency_id" => 1,
                 "year" => "2010",
                 "month" => "September",
                 "image" => "null",
@@ -148,6 +163,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 2,
+                "competency_id" => 1,
                 "year" => "2010",
                 "month" => "January",
                 "image" => "null",
@@ -161,6 +177,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 2,
+                "competency_id" => 1,
                 "year" => "2011",
                 "month" => "February",
                 "image" => "null",
@@ -174,6 +191,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 2,
+                "competency_id" => 1,
                 "year" => "2012",
                 "month" => "August",
                 "image" => "null",
@@ -187,6 +205,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 2,
+                "competency_id" => 1,
                 "year" => "2014",
                 "month" => "October",
                 "image" => "null",
@@ -200,6 +219,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 2,
+                "competency_id" => 1,
                 "year" => "2014",
                 "month" => "December",
                 "image" => "null",
@@ -213,6 +233,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 2,
+                "competency_id" => 1,
                 "year" => "2015",
                 "month" => "January",
                 "image" => "null",
@@ -226,6 +247,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 2,
+                "competency_id" => 1,
                 "year" => "2015",
                 "month" => "February",
                 "image" => "null",
@@ -252,6 +274,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 2,
+                "competency_id" => 1,
                 "year" => "2015",
                 "month" => "November",
                 "image" => "null",
@@ -265,6 +288,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 2,
+                "competency_id" => 1,
                 "year" => "2016",
                 "month" => "January",
                 "image" => "null",
@@ -278,6 +302,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2017",
                 "month" => "April",
                 "image" => "null",
@@ -291,6 +316,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2017",
                 "month" => "December",
                 "image" => "null",
@@ -304,6 +330,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2018",
                 "month" => "January",
                 "image" => "null",
@@ -317,6 +344,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2019",
                 "month" => "January",
                 "image" => "null",
@@ -330,6 +358,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2019",
                 "month" => "January",
                 "image" => "null",
@@ -343,6 +372,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2020",
                 "month" => "February",
                 "image" => "null",
@@ -356,6 +386,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2020",
                 "month" => "December",
                 "image" => "null",
@@ -369,6 +400,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2003",
                 "month" => "December",
                 "image" => "null",
@@ -382,6 +414,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2004",
                 "month" => "September",
                 "image" => "null",
@@ -395,6 +428,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 3,
+                "competency_id" => 1,
                 "year" => "2005",
                 "month" => "September",
                 "image" => "null",
@@ -408,6 +442,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2007",
                 "month" => "January",
                 "image" => "null",
@@ -421,6 +456,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2008",
                 "month" => "February",
                 "image" => "null",
@@ -434,6 +470,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2009",
                 "month" => "December",
                 "image" => "null",
@@ -447,6 +484,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2010",
                 "month" => "June",
                 "image" => "null",
@@ -460,6 +498,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2019",
                 "month" => "June",
                 "image" => "null",
@@ -473,6 +512,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2020",
                 "month" => "June",
                 "image" => "null",
@@ -486,6 +526,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2021",
                 "month" => "June",
                 "image" => "null",
@@ -499,6 +540,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2022",
                 "month" => "June",
                 "image" => "null",
@@ -512,6 +554,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2023",
                 "month" => "June",
                 "image" => "null",
@@ -525,6 +568,7 @@ class ExamQuestionSeeder extends Seeder
             ],
             [
                 "program_id" => 4,
+                "competency_id" => 1,
                 "year" => "2024",
                 "month" => "January",
                 "image" => "null",

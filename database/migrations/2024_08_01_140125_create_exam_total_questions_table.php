@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('exam_total_questions', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->integer("total_questions");
             $table->timestamps();
         });
     }

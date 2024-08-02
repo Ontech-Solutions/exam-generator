@@ -11,7 +11,7 @@ class ExamQuestion extends Model
 
     protected $fillable = [
         "program_id",
-        "exam_category_id",
+        "competency_id",
         "year",
         "month",
         "image",

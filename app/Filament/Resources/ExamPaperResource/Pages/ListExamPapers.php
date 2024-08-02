@@ -6,6 +6,7 @@ use App\Filament\Resources\ExamPaperResource;
 use App\Models\Competency;
 use App\Models\ExamPaper;
 use App\Models\ExamQuestion;
+use App\Models\ExamTotalQuestion;
 use App\Models\Program;
 use Filament\Actions;
 use Filament\Forms\Components\Select;
@@ -39,10 +40,12 @@ class ListExamPapers extends ListRecords
                     $new_ref_number = $this->generateRefNumber();
 
                     // Get total count of questions
-                    $totalQuestions = ExamQuestion::where('program_id', $data['program_id'])->count();
+                    $totalProgramQuestions = ExamQuestion::where('program_id', $data['program_id'])->count();
+
+                    $totalExamPaperQuestions = ExamTotalQuestion::where("name","default")->first()->total_questions;
 
                     // Check if there are enough questions in the database
-                    if ($totalQuestions < 15) {
+                    if ($totalProgramQuestions < $totalExamPaperQuestions) {
                         // Handle case when there are not enough questions
                         //echo "Error: There are not enough questions in the database.";
                         return;
@@ -51,10 +54,16 @@ class ListExamPapers extends ListRecords
                     // Initialize an array to store selected question IDs
                     $selectedQuestionIds = [];
 
-                    // Loop to select 15 unique question IDs
-                    while (count($selectedQuestionIds) < 15) {
+                    //get program competences
+                    $program_competences = Competency::where("exam_category_id",$data['program_id'])->get();
+
+                    foreach ($program_competences as $program_competence){
+
+                    }
+                    // Loop to select unique question IDs
+                    while (count($selectedQuestionIds) < $totalExamPaperQuestions) {
                         // Generate a random question ID
-                        $randomQuestionId = rand(1, $totalQuestions);
+                        $randomQuestionId = rand(1, $totalProgramQuestions);
 
                         // Check if the selected question ID is not already in the array
                         if (!in_array($randomQuestionId, $selectedQuestionIds)) {
