@@ -24,10 +24,11 @@ class EditExamPaper extends EditRecord
         ];
     }
 
-    protected function getFooterActions(): array
+    protected function getFormActions(): array
     {
         return [
 
         ];
     }
+
 }

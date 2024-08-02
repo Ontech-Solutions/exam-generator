@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+
+    mysql_db:
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: exam_lara_docker_24
+            MYSQL_DATABASE: exam_lara_docker
+        ports:
+            - 3306:3306
+
+    phpmyadmin:
+        image: phpmyadmin:latest
+        ports:
+            - 9002:80
+        environment:
+            - PMA_ARBITRARY=1
+
+    web-app:
+        container_name: exam-ui-app
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./:/var/www/html
+        ports:
+            - 9000:80

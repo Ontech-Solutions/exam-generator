@@ -13,15 +13,19 @@
     <tbody>
     @foreach(\App\Models\ExamPaper::where('ref_number', $ref_number)->get() as $exam)
         <tr>
-            <td style="border: 1px solid #ffffff; padding: 8px; width: 370px; font-weight: bold; margin-bottom: 40px; margin-top: 40px;">{{ $loop->iteration }}. {{ $exam->question }}</td>
+            <td style="border: 1px solid #ffffff; padding: 8px; width: 370px; font-weight: bold; margin-bottom: 40px; margin-top: 40px;">{{ $loop->iteration }}. {{ $exam->question}}</td>
+        </tr>
+        <tr><td>@if($exam->image == "null")<div></div>@else<img src="{{ url($exam->image) }}" style="height: 100px">@endif</td></tr>
+        <tr>
+            <td><div>A. {{ $exam->option_a }}</div></td>
+            <td><div>B. {{ $exam->option_b }}</div></td>
         </tr>
         <tr>
-            <td><div>{{ $exam->option_a }}</div></td>
-            <td><div>{{ $exam->option_b }}</div></td>
+            <td><div>C. {{ $exam->option_c }}</div></td>
+            <td><div>D. {{ $exam->option_d }}</div></td>
         </tr>
         <tr>
-            <td><div>{{ $exam->option_c }}</div></td>
-            <td><div>{{ $exam->option_d }}</div></td>
+            <td><div>E. {{ $exam->option_e }}</div></td>
         </tr>
     @endforeach
     </tbody>

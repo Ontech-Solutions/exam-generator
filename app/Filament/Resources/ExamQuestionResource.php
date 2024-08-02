@@ -78,7 +78,7 @@ class ExamQuestionResource extends Resource
                                         "December" => "December"
                                     ])
                                 ->required()
-                            ]),    
+                            ]),
                         Forms\Components\Textarea::make("question")
                             ->required(),
                         Forms\Components\Grid::make(2)
@@ -108,7 +108,7 @@ class ExamQuestionResource extends Resource
                                     ->label("Correct Answer")
                                     ->required(),
                             ]),
-                        
+
 
                     ])
             ]);
@@ -118,7 +118,7 @@ class ExamQuestionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('exam_category_id')
+                Tables\Columns\TextColumn::make('program_id')
                     ->label("Program")
                     ->formatStateUsing(function($state){
                         return ExamCategory::where('id', $state)->first()->name  ?? "";

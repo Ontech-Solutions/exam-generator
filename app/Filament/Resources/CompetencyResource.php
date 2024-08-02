@@ -47,8 +47,9 @@ class CompetencyResource extends Resource
                             ->required(),
                         TextInput::make('name')->unique(ignoreRecord: true)->required(),
                         TextInput::make('weight')
-                        ->required()
-                        ->postfix("%")
+                            ->required()
+                            ->numeric()
+                            ->postfix("%")
                     ])
             ]);
     }
@@ -65,7 +66,7 @@ class CompetencyResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('weight')->sortable()
                     ->searchable(),
-                
+
             ])
             ->filters([
                 //

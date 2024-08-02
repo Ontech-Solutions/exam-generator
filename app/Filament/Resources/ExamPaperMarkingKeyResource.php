@@ -2,34 +2,33 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ExamPaperResource\Pages;
-use App\Filament\Resources\ExamPaperResource\RelationManagers;
+use App\Filament\Resources\ExamPaperMarkingKeyResource\Pages;
+use App\Filament\Resources\ExamPaperMarkingKeyResource\RelationManagers;
 use App\Models\ExamPaper;
+use App\Models\ExamPaperMarkingKey;
 use App\Models\ExamTotalQuestion;
 use App\Models\User;
-use Doctrine\DBAL\Schema\Column;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ExamPaperResource extends Resource
+class ExamPaperMarkingKeyResource extends Resource
 {
-    protected static ?string $model = ExamPaper::class;
+    protected static ?string $model = ExamPaperMarkingKey::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static ?string $navigationGroup = 'Generated Papers';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
 
     public static function getEloquentQuery(): Builder
     {
-        $query = parent::getEloquentQuery();
+        $query = ExamPaper::query();
 
         return $query->select('id', 'ref_number', 'program_id', 'year', 'month', 'image', 'question', 'option_a', 'option_b','option_c','option_d','option_e','correct_answer', 'user_id','created_at','updated_at')
             ->groupBy('ref_number')
@@ -43,7 +42,7 @@ class ExamPaperResource extends Resource
                 Forms\Components\Placeholder::make('')
                     ->content(function (ExamPaper $record) {
                         $exam_questions = ExamPaper::where('ref_number', $record->ref_number)->get();
-                        return view('exam-paper-view', compact('exam_questions'));
+                        return view('exam-paper-marking-view', compact('exam_questions'));
                     })
                     ->columnSpanFull()
             ]);
@@ -74,7 +73,7 @@ class ExamPaperResource extends Resource
                     ->dateTime()
             ])
             ->filters([
-
+                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label("View"),
@@ -96,9 +95,9 @@ class ExamPaperResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListExamPapers::route('/'),
-            //'create' => Pages\CreateExamPaper::route('/create'),
-            'edit' => Pages\EditExamPaper::route('/{record}/edit'),
+            'index' => Pages\ListExamPaperMarkingKeys::route('/'),
+            //'create' => Pages\CreateExamPaperMarkingKey::route('/create'),
+            'edit' => Pages\EditExamPaperMarkingKey::route('/{record}/edit'),
         ];
     }
 }

@@ -9,7 +9,7 @@ class Competency extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['exam_category_id','name', 'weight'];
+    protected $fillable = ['program_id','name', 'weight'];
 
     protected $searchableFields = ['*'];
 
