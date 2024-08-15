@@ -13,19 +13,19 @@ return new class extends Migration
     {
         Schema::create('exam_questions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger("program_id");
-            $table->unsignedInteger("competency_id");
-            $table->string("year");
-            $table->string("month");
+            $table->unsignedInteger("program_id")->nullable();
+            $table->unsignedInteger("competency_id")->nullable();
+            $table->string("year")->nullable();
+            $table->string("month")->nullable();
             $table->string("image")->nullable();
-            $table->text("question");
-            $table->string("option_a");
-            $table->string("option_b");
-            $table->string("option_c");
-            $table->string("option_d");
-            $table->string("option_e");
-            $table->string("correct_answer");
-            $table->unsignedInteger("user_id");
+            $table->text("question")->nullable();
+            $table->string("option_a")->nullable();
+            $table->string("option_b")->nullable();
+            $table->string("option_c")->nullable();
+            $table->string("option_d")->nullable();
+            $table->string("option_e")->nullable();
+            $table->string("correct_answer")->nullable();
+            $table->unsignedInteger("user_id")->nullable();
             $table->timestamps();
         });
     }

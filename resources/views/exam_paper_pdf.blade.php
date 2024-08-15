@@ -18,10 +18,14 @@
 {{--        <tr><td>@if($exam->image == "null")<div></div>@else<img src="{{ url($exam->image) }}" style="height: 100px">@endif</td></tr>--}}
         <tr>
             <td><div>A. {{ $exam->option_a }}</div></td>
+        </tr>
+        <tr>
             <td><div>B. {{ $exam->option_b }}</div></td>
         </tr>
         <tr>
-            <td><div>C. {{ $exam->option_c }}</div></td>
+            <td><div>A. {{ $exam->option_c }}</div></td>
+        </tr>
+        <tr>
             <td><div>D. {{ $exam->option_d }}</div></td>
         </tr>
         <tr>
