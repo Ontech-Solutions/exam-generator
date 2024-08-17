@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger("program_id")->nullable();
             $table->unsignedInteger("competency_id")->nullable();
+            $table->string("competency")->nullable();
             $table->string("year")->nullable();
             $table->string("month")->nullable();
             $table->string("image")->nullable();

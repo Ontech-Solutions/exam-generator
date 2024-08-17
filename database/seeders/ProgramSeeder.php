@@ -15,103 +15,103 @@ class ProgramSeeder extends Seeder
     {
         DB::table('programs')->insert([
             [
-                'name' => 'Medical Doctors'
+                'name' => 'Medical Doctors' //1
             ],
             [
-                'name' => 'Clinical Ophthalmic Officers'
+                'name' => 'Clinical Ophthalmic Officers'  //2
             ],
             [
-                'name' => 'Optometrists'
+                'name' => 'Optometrists'//3
             ],
             [
-                'name' => 'Optometry Technologists'
+                'name' => 'Optometry Technologists'//4
             ],
             [
-                'name' => 'Biomedical Scientific Officers'
+                'name' => 'Biomedical Scientific Officers'//5
             ],
             [
-                'name' => 'Medical Laboratory Technologists'
+                'name' => 'Medical Laboratory Technologists'//6
             ],
             [
-                'name' => 'Pharmacists'
+                'name' => 'Pharmacists'//7
             ],
             [
-                'name' => 'Pharmacy Technologists'
+                'name' => 'Pharmacy Technologists'//8
             ],
             [
-                'name' => 'Dental Surgeons'
+                'name' => 'Dental Surgeons'//9
             ],
             [
-                'name' => 'Dental Therapists'
+                'name' => 'Dental Therapists'//10
             ],
             [
-                'name' => 'Dental Technologists'
+                'name' => 'Dental Technologists'//11
             ],
             [
-                'name' => 'Dental Assistants'
+                'name' => 'Dental Assistants'//12
             ],
             [
-                'name' => 'Radiographers'
+                'name' => 'Radiographers'//13
             ],
             [
-                'name' => 'Radiation Therapists'
+                'name' => 'Radiation Therapists'//14
             ],
             [
-                'name' => 'Radiography Technologists'
+                'name' => 'Radiography Technologists'//15
             ],
             [
-                'name' => 'Medical Licentiates'
+                'name' => 'Medical Licentiates'//16
             ],
             [
-                'name' => 'Mental Health Officers'
+                'name' => 'Clinical Officers General'//17
             ],
             [
-                'name' => 'Clinical Officers General'
+                'name' => 'Clinical Officers Psychiatry'//18
             ],
             [
-                'name' => 'Clinical Officers Psychiatry'
+                'name' => 'Clinical Anaesthettic Officers'//19
             ],
             [
-                'name' => 'Clinical Anaesthettic Officers'
+                'name' => 'Advanced Paramedical Anaesthesia'//20
             ],
             [
-                'name' => 'Advanced Paramedical Anaesthesia'
+                'name' => 'Environmental Health Officers'//21
             ],
             [
-                'name' => 'Emergency Care Officers'
+                'name' => 'Public Health Officers'//22
             ],
             [
-                'name' => 'Environmental Health Officers'
+                'name' => 'Environmental Health Technologists'//23
             ],
             [
-                'name' => 'Public Health Officers'
+                'name' => 'Community Health Assistants'//24
             ],
             [
-                'name' => 'Environmental Health Technologists'
+                'name' => 'Physiotherapists'//25
             ],
             [
-                'name' => 'Community Health Assistants'
+                'name' => 'Physiotherapy Technologists'//26
             ],
             [
-                'name' => 'Physiotherapists'
+                'name' => 'Nutritionists'//27
             ],
             [
-                'name' => 'Physiotherapy Technologists'
+                'name' => 'Nutrition Technologists'//28
             ],
             [
-                'name' => 'Nutritionists'
+                'name' => 'Clinical Psychologists'//29
             ],
             [
-                'name' => 'Nutrition Technologists'
+                'name' => 'Clinical Technologists'//30
             ],
             [
-                'name' => 'Clinical Psychologists'
+                'name' => 'Orthopaedic Technologists'//31
             ],
             [
-                'name' => 'Clinical Technologists'
+                'name' => 'Mental Health Officers'//32
             ],
             [
-                'name' => 'Orthopaedic Technologists'
+                'name' => 'Emergency Care Officers'//33
             ]
         ]);
     }
