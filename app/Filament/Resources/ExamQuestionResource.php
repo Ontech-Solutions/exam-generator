@@ -54,7 +54,7 @@ class ExamQuestionResource extends Resource
                                         if (!$exam_category) {
                                             return Competency::all()->pluck('name', 'id');
                                         }
-                                        return Competency::where('exam_category_id', $exam_category->id)->pluck('name', 'id');
+                                        return Competency::where('program_id', $exam_category->id)->pluck('name', 'id');
                                     })
                                     ->reactive()
                                     ->required(),
@@ -117,7 +117,9 @@ class ExamQuestionResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('id','desc')
             ->columns([
+                Tables\Columns\TextColumn::make("id"),
                 Tables\Columns\TextColumn::make('program_id')
                     ->label("Program")
                     ->formatStateUsing(function($state){

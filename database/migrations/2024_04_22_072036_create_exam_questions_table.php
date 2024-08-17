@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedInteger("program_id");
             $table->unsignedInteger("competency_id");
             $table->string("year");
-            $table->string("month");
+            $table->string("month")->nullable();
             $table->string("image")->nullable();
             $table->text("question");
             $table->string("option_a");
@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string("option_c");
             $table->string("option_d");
             $table->string("option_e");
-            $table->string("correct_answer");
-            $table->unsignedInteger("user_id");
+            $table->string("correct_answer")->nullable();
+            $table->unsignedInteger("user_id")->nullable();
             $table->timestamps();
         });
     }
