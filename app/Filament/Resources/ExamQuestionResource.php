@@ -10,6 +10,7 @@ use App\Models\ExamQuestion;
 use App\Models\Program;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -21,16 +22,39 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class ExamQuestionResource extends Resource
 {
     protected static ?string $model = ExamQuestion::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-c-question-mark-circle';
 
     protected static ?int $navigationSort = 2;
 
     protected static ?string $navigationGroup = 'System Settings';
+
+    public static function getEloquentQuery(): Builder
+    {
+        // Check if there's an authenticated user
+        $user = Auth::user();
+
+        $query = parent::getEloquentQuery();
+
+        if ($user && $user->role_id == 1) {
+            // Customize the query as needed
+            return $query->orderBy('created_at', 'desc');
+        } else {
+            return $query->where('user_id', $user->id)
+                ->orderBy('created_at', 'desc');
+        }
+
+        // If it's not regulator_id 1 or no authenticated user, return an empty query
+        return $query->where("user_id", -20);
+
+    }
+
 
     public static function form(Form $form): Form
     {
@@ -59,28 +83,38 @@ class ExamQuestionResource extends Resource
                                     ->reactive()
                                     ->required(),
                             ]),
-                        Forms\Components\Grid::make(2)
-                            ->schema([
-                                TextInput::make('year')->required(),
-                                Forms\Components\Select::make("month")
-                                    ->options([
-                                        "January" => "January",
-                                        "February" => "February",
-                                        "March" => "March",
-                                        "April" => "April",
-                                        "May" => "May",
-                                        "June" => "June",
-                                        "July" => "July",
-                                        "August" => "August",
-                                        "September" => "September",
-                                        "October" => "October",
-                                        "November" => "November",
-                                        "December" => "December"
-                                    ])
-                                ->required()
-                            ]),
+                        // Forms\Components\Grid::make(2)
+                        //     ->schema([
+                        //         TextInput::make('year')->required(),
+                        //         Forms\Components\Select::make("month")
+                        //             ->options([
+                        //                 "January" => "January",
+                        //                 "February" => "February",
+                        //                 "March" => "March",
+                        //                 "April" => "April",
+                        //                 "May" => "May",
+                        //                 "June" => "June",
+                        //                 "July" => "July",
+                        //                 "August" => "August",
+                        //                 "September" => "September",
+                        //                 "October" => "October",
+                        //                 "November" => "November",
+                        //                 "December" => "December"
+                        //             ])
+                        //         ->required()
+                        //     ]),
                         Forms\Components\Textarea::make("question")
                             ->required(),
+                        Forms\Components\Section::make('image')
+                            ->schema([
+                                FileUpload::make('image')
+                                    ->label('')
+                                    ->directory('question_image')
+                                    ->openable()
+                                    ->maxSize(5)
+                                    ->storeFileNamesIn('question_image')
+                                    ->maxSize(1024),
+                            ]),
                         Forms\Components\Grid::make(2)
                             ->schema([
                                 TextInput::make('option_a')
@@ -119,7 +153,9 @@ class ExamQuestionResource extends Resource
         return $table
             ->defaultSort('id','desc')
             ->columns([
-                Tables\Columns\TextColumn::make("id"),
+                Tables\Columns\TextColumn::make('id')->sortable()
+                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('program_id')
                     ->label("Program")
                     ->formatStateUsing(function($state){
@@ -185,17 +221,22 @@ class ExamQuestionResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                SelectFilter::make('exam_category_id')
+                SelectFilter::make('program_id')
                     ->label("Program")
                     ->multiple()
-                    ->options(ExamCategory::all()->pluck('name','id')->toArray()),
+                    ->options(Program::all()->pluck('name','id')->toArray()),
+                    SelectFilter::make('user_id')
+                    ->label("Recorded by")
+                    ->multiple()
+                    ->options(User::all()->pluck('name','id')->toArray()),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    // ExportBulkAction::make()
+                    // ->label('Download Questions Report'),
                 ]),
             ]);
     }

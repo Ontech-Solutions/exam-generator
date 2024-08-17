@@ -181,23 +181,23 @@ function checkCreatePermissionPermission(): bool
     return false;
 }
 
-// function checkReadPermissionPermission(): bool
-// {
-//     $user = Auth::user();
-//     if(Permission::where('module', 'Permission')->where('role_id', $user->role_id)->count() > 0){
-//         return Permission::where('module', 'Permission')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
-//     }
-//     return false;
-// }
+function checkReadPermissionPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Permission')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Permission')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
+    }
+    return false;
+}
 
-// function checkUpdatePermissionPermission(): bool
-// {
-//     $user = Auth::user();
-//     if(Permission::where('module', 'Permission')->where('role_id', $user->role_id)->count() > 0){
-//         return Permission::where('module', 'Permission')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
-//     }
-//     return false;
-// }
+function checkUpdatePermissionPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Permission')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Permission')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
+    }
+    return false;
+}
 
 function checkDeletePermissionPermission(): bool
 {

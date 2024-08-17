@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<<<<<<< HEAD
     <title>HPCZ | Learning Portal</title>
+=======
+    <title>HPCZ | Exam System</title>
+>>>>>>> af7e90ff84d53e3b0af5b18a8ee4e101fcca3421
 
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset("apple-touch-icon.png")}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset("favicon-32x32.png")}}">

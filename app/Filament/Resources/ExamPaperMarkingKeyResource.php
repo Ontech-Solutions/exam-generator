@@ -22,7 +22,7 @@ class ExamPaperMarkingKeyResource extends Resource
 {
     protected static ?string $model = ExamPaperMarkingKey::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-c-key';
 
     protected static ?string $navigationGroup = 'Generated Papers';
 

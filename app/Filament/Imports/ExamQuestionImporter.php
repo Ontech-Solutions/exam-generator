@@ -47,9 +47,7 @@ class ExamQuestionImporter extends Importer
                 ->rules(['required','string']),
             ImportColumn::make('option_e')
                 ->requiredMapping()
-                ->rules(['required','string']),
-            ImportColumn::make('correct_answer')
-                ->rules(['required','string']),
+                ->rules(['required','string'])
         ];
     }
 

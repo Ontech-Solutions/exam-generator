@@ -21,7 +21,7 @@ class CompetencyResource extends Resource
 {
     protected static ?string $model = Competency::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-c-link';
 
     protected static ?string $navigationGroup = 'System Settings';
 

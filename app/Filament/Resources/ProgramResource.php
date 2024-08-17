@@ -19,7 +19,7 @@ class ProgramResource extends Resource
 {
     protected static ?string $model = Program::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-c-square-3-stack-3d';
 
     protected static ?int $navigationSort = 3;
 
