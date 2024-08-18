@@ -14,6 +14,7 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         DB::table("roles")->insert([
+            
             [
                 "name" => "Chief Examination Officer",
                 "created_at" => now(),
@@ -28,7 +29,12 @@ class RoleSeeder extends Seeder
                "name" => "Examinations Clerk",
                "created_at" => now(),
                "updated_at" => now()
-           ]
+           ],
+           [
+                "name" => "Administrator",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
         ]);
     }
 }

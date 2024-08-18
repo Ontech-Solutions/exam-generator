@@ -19,4 +19,9 @@ class Program extends Model
     {
         return $this->hasMany(Competency::class);
     }
+
+    public function exam_questions()
+    {
+        return $this->hasMany(ExamQuestion::class);
+    }
 }

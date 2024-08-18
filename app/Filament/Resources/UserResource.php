@@ -97,80 +97,6 @@ function checkDeleteBranchPermission(): bool
     return false;
 }
 
-//Country
-function checkCreateCountryPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Country')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Country')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
-    }
-    return false;
-}
-
-function checkReadCountryPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Country')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Country')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
-    }
-    return false;
-}
-
-function checkUpdateCountryPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Country')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Country')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
-    }
-    return false;
-}
-
-function checkDeleteCountryPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Country')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Country')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
-    }
-    return false;
-}
-
-//Nationality
-function checkCreateNationalityPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Nationality')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Nationality')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
-    }
-    return false;
-}
-
-function checkReadNationalityPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Nationality')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Nationality')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
-    }
-    return false;
-}
-
-function checkUpdateNationalityPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Nationality')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Nationality')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
-    }
-    return false;
-}
-
-function checkDeleteNationalityPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Nationality')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Nationality')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
-    }
-    return false;
-}
-
 //Permission
 function checkCreatePermissionPermission(): bool
 {
@@ -245,191 +171,6 @@ function checkDeleteRolePermission(): bool
     return false;
 }
 
-//Screening Dataset
-function checkCreateScreeningDatasetPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Screening Dataset')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Screening Dataset')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
-    }
-    return false;
-}
-
-function checkReadScreeningDatasetPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Screening Dataset')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Screening Dataset')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
-    }
-    return false;
-}
-
-function checkUpdateScreeningDatasetPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Screening Dataset')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Screening Dataset')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
-    }
-    return false;
-}
-
-function checkDeleteScreeningDatasetPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Screening Dataset')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Screening Dataset')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
-    }
-    return false;
-}
-
-//Search Category
-function checkCreateSearchCategoryPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Search Category')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Search Category')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
-    }
-    return false;
-}
-
-function checkReadSearchCategoryPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Search Category')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Search Category')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
-    }
-    return false;
-}
-
-function checkUpdateSearchCategoryPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Search Category')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Search Category')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
-    }
-    return false;
-}
-
-function checkDeleteSearchCategoryPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Search Category')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Search Category')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
-    }
-    return false;
-}
-
-//Suspicious Case
-function checkCreateSuspiciousCasePermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Suspicious Case')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Suspicious Case')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
-    }
-    return false;
-}
-
-function checkReadSuspiciousCasePermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Suspicious Case')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Suspicious Case')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
-    }
-    return false;
-}
-
-function checkUpdateSuspiciousCasePermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Suspicious Case')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Suspicious Case')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
-    }
-    return false;
-}
-
-function checkDeleteSuspiciousCasePermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Suspicious Case')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Suspicious Case')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
-    }
-    return false;
-}
-
-//Transaction
-function checkCreateTransactionPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Transaction')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Transaction')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
-    }
-    return false;
-}
-
-function checkReadTransactionPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Transaction')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Transaction')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
-    }
-    return false;
-}
-
-function checkUpdateTransactionPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Transaction')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Transaction')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
-    }
-    return false;
-}
-
-function checkDeleteTransactionPermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Transaction')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Transaction')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
-    }
-    return false;
-}
-
-//Transaction Type
-function checkCreateTransactionTypePermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'TransactionType')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'TransactionType')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
-    }
-    return false;
-}
-
-function checkReadTransactionTypePermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Transaction Type')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Transaction Type')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
-    }
-    return false;
-}
-
-function checkUpdateTransactionTypePermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Transaction Type')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Transaction Type')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
-    }
-    return false;
-}
-
-function checkDeleteTransactionTypePermission(): bool
-{
-    $user = Auth::user();
-    if(Permission::where('module', 'Transaction Type')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Transaction Type')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
-    }
-    return false;
-}
-
 //User
 function checkCreateUserPermission(): bool
 {
@@ -467,39 +208,261 @@ function checkDeleteUserPermission(): bool
     return false;
 }
 
-//Watchlist
-function checkCreateWatchlistPermission(): bool
+//Competency
+function checkCreateCompetencyPermission(): bool
 {
     $user = Auth::user();
-    if(Permission::where('module', 'Watchlist')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Watchlist')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
+    if(Permission::where('module', 'Competency')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Competency')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
     }
     return false;
 }
 
-function checkReadWatchlistPermission(): bool
+function checkReadCompetencyPermission(): bool
 {
     $user = Auth::user();
-    if(Permission::where('module', 'Watchlist')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Watchlist')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
+    if(Permission::where('module', 'Competency')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Competency')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
     }
     return false;
 }
 
-function checkUpdateWatchlistPermission(): bool
+function checkUpdateCompetencyPermission(): bool
 {
     $user = Auth::user();
-    if(Permission::where('module', 'Watchlist')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Watchlist')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
+    if(Permission::where('module', 'Competency')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Competency')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
     }
     return false;
 }
 
-function checkDeleteWatchlistPermission(): bool
+function checkDeleteCompetencyPermission(): bool
 {
     $user = Auth::user();
-    if(Permission::where('module', 'Watchlist')->where('role_id', $user->role_id)->count() > 0){
-        return Permission::where('module', 'Watchlist')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
+    if(Permission::where('module', 'Competency')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Competency')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
+    }
+    return false;
+}
+
+//Exam Venues
+function checkCreateExamVenuePermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamVenue')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamVenue')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
+    }
+    return false;
+}
+
+function checkReadExamVenuePermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamVenue')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamVenue')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
+    }
+    return false;
+}
+
+function checkUpdateExamVenuePermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamVenue')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamVenue')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
+    }
+    return false;
+}
+
+function checkDeleteExamVenuePermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamVenue')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamVenue')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
+    }
+    return false;
+}
+
+//Exam Questions
+function checkCreateExamQuestiontPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamQuestiont')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamQuestiont')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
+    }
+    return false;
+}
+
+function checkReadExamQuestiontPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamQuestiont')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamQuestiont')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
+    }
+    return false;
+}
+
+function checkUpdateExamQuestiontPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamQuestiont')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamQuestiont')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
+    }
+    return false;
+}
+
+function checkDeleteExamQuestiontPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamQuestiont')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamQuestiont')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
+    }
+    return false;
+}
+
+//Programs
+function checkCreateProgramPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Program')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Program')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
+    }
+    return false;
+}
+
+function checkReadProgramPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Program')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Program')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
+    }
+    return false;
+}
+
+function checkUpdateProgramPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Program')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Program')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
+    }
+    return false;
+}
+
+function checkDeleteProgramPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Program')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Program')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
+    }
+    return false;
+}
+
+//Exam Papers
+function checkCreateExamPapersPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Exam Papers')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamPaper')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
+    }
+    return false;
+}
+
+function checkReadExamPapersPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Exam Papers')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Exam Papers')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
+    }
+    return false;
+}
+
+function checkUpdateExamPapersPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Exam Papers')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Exam Papers')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
+    }
+    return false;
+}
+
+function checkDeleteExamPaperPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Exam Papers')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Exam Papers')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
+    }
+    return false;
+}
+
+//Exam Paper Marking Key
+function checkCreateExamPaperMarkingKeysPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Exam Paper Marking Keys')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Exam Paper Marking Keys')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
+    }
+    return false;
+}
+
+function checkReadExamPaperMarkingKeysPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Exam Paper Marking Keys')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Exam Paper Marking Keys')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
+    }
+    return false;
+}
+
+function checkUpdateExamPaperMarkingKeyPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Exam Paper Marking Keys')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Exam Paper Marking Keys')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
+    }
+    return false;
+}
+
+function checkDeleteExamPaperMarkingKeysPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'Exam Paper Marking Keys')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'Exam Paper Marking Keys')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
+    }
+    return false;
+}
+
+//Exam Questions
+function checkCreateExamQuestionPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamQuestion')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamQuestion')->where('role_id', $user->role_id)->first()->create == 1 ?? false;
+    }
+    return false;
+}
+
+function checkReadExamQuestionPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamQuestion')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamQuestion')->where('role_id', $user->role_id)->first()->read == 1 ?? false;
+    }
+    return false;
+}
+
+function checkUpdateExamQuestionPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamQuestion')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamQuestion')->where('role_id', $user->role_id)->first()->update == 1 ?? false;
+    }
+    return false;
+}
+
+function checkDeleteExamQuestionPermission(): bool
+{
+    $user = Auth::user();
+    if(Permission::where('module', 'ExamQuestion')->where('role_id', $user->role_id)->count() > 0){
+        return Permission::where('module', 'ExamQuestion')->where('role_id', $user->role_id)->first()->delete == 1 ?? false;
     }
     return false;
 }
@@ -517,6 +480,11 @@ class UserResource extends Resource
     public static function getNavigationLabel(): string
     {
         return 'System Users';
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return checkReadUserPermission();
     }
 
     public static function form(Form $form): Form
@@ -537,7 +505,7 @@ class UserResource extends Resource
                                     ->prefix('Email')
                                     ->email()
                                     ->required()
-                                    ->unique(),
+                                    ->unique(ignoreRecord: true),
                                 TextInput::make('password')
                                     ->minLength(8)
                                     ->prefix('Password')
@@ -585,6 +553,11 @@ class UserResource extends Resource
                     ->description(function ($record){
                         return User::where('id',$record->updated_by)->first()->name ?? "";
                     }),
+                Tables\Columns\TextColumn::make('role_id')
+                    ->formatStateUsing(function ($record){
+                        return Role::where('id', $record->branch_id)->first()->name ?? "";
+                    })
+                    ->label('Role'),
                 Tables\Columns\TextColumn::make('branch_id')
                     ->formatStateUsing(function ($record){
                         return Branch::where('id', $record->branch_id)->first()->name ?? "";

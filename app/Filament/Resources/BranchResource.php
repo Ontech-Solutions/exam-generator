@@ -24,6 +24,11 @@ class BranchResource extends Resource
 
     protected static ?int $navigationSort = 10;
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return checkReadBranchPermission();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -50,11 +55,24 @@ class BranchResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->color('hyper')
+                        ->visible(function (){
+                        return checkUpdateBranchPermission();
+                    }),
+                Tables\Actions\ViewAction::make()
+                    ->color('hyper')
+                            ->visible(function (){
+                            return checkReadBranchPermission();
+                        }), 
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                ->color('red')
+                        ->visible(function (){
+                        return checkDeleteBranchPermission();
+                    }),
                 ]),
             ]);
     }

@@ -25,6 +25,11 @@ class ProgramResource extends Resource
 
     protected static ?string $navigationGroup = 'System Settings';
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return checkReadProgramPermission();
+    }
+
     public static function form(Form $form): Form
     {
         return $form

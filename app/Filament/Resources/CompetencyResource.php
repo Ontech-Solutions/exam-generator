@@ -35,6 +35,11 @@ class CompetencyResource extends Resource
         return $query->orderBy('created_at', 'desc');
     }
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return checkReadCompetencyPermission();
+    }
+
     public static function form(Form $form): Form
     {
         return $form

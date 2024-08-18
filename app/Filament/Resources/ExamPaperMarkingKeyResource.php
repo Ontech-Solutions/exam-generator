@@ -38,6 +38,11 @@ class ExamPaperMarkingKeyResource extends Resource
             ->orderBy('updated_at', 'desc');
     }
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return checkReadExamPaperMarkingKeysPermission();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -80,7 +85,8 @@ class ExamPaperMarkingKeyResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()->label("View"),
+                Tables\Actions\EditAction::make()->label("View")
+                ,
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

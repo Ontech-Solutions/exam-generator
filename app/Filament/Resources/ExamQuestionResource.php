@@ -55,6 +55,11 @@ class ExamQuestionResource extends Resource
 
     }
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return checkReadExamQuestionPermission();
+    }
+
 
     public static function form(Form $form): Form
     {
@@ -82,6 +87,7 @@ class ExamQuestionResource extends Resource
                                     })
                                     ->reactive()
                                     ->required(),
+
                             ]),
                         // Forms\Components\Grid::make(2)
                         //     ->schema([
@@ -159,7 +165,8 @@ class ExamQuestionResource extends Resource
                 Tables\Columns\TextColumn::make('program_id')
                     ->label("Program")
                     ->formatStateUsing(function($state){
-                        return ExamCategory::where('id', $state)->first()->name  ?? "";
+                        //return ExamCategory::where('id', $state)->first()->name  ?? "";
+                        return Program::where('id', $state)->first()->name  ?? "";
                     })
                     ->wrap()
                     ->searchable()
@@ -172,22 +179,15 @@ class ExamQuestionResource extends Resource
                     ->wrap()
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('year')
-                    ->description(function($record){
-                        return $record->month ?? "";
-                    }),
+                // Tables\Columns\TextColumn::make('year')
+                //     ->description(function($record){
+                //         return $record->month ?? "";
+                //     }),
                 Tables\Columns\TextColumn::make('question')
                     ->wrap()
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('user_id')
-                    ->sortable()
-                    ->searchable()
-                    ->wrap()
-                    ->label("Recorded By")
-                    ->formatStateUsing(function($state){
-                        return User::where("id",$state)->first()->name ?? "";
-                    }),
+               
                 Tables\Columns\TextColumn::make('option_a')
                     ->label("Option A")
                     ->wrap()
@@ -219,6 +219,14 @@ class ExamQuestionResource extends Resource
                     ->hidden()
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('user_id')
+                    ->sortable()
+                    ->searchable()
+                    ->wrap()
+                    ->label("Recorded By")
+                    ->formatStateUsing(function($state){
+                        return User::where("id",$state)->first()->name ?? "";
+                    }),
             ])
             ->filters([
                 SelectFilter::make('program_id')

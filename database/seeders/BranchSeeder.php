@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class BranchSeeder extends Seeder
 {
@@ -12,6 +13,13 @@ class BranchSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('branches')->insert([
+            [
+                'name' => 'Lusaka'
+            ],
+            [
+                'name' => 'Ndola'
+            ]
+        ]);
     }
 }

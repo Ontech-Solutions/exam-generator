@@ -24,4 +24,8 @@ class ExamQuestion extends Model
         "correct_answer",
         "user_id"
     ];
+    public function program()
+    {
+        return $this->belongsTo(Program::class);
+    }
 }
