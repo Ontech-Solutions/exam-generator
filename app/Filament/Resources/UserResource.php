@@ -482,10 +482,10 @@ class UserResource extends Resource
         return 'System Users';
     }
 
-    public static function shouldRegisterNavigation(): bool
-    {
-        return checkReadUserPermission();
-    }
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //     return checkReadUserPermission();
+    // }
 
     public static function form(Form $form): Form
     {

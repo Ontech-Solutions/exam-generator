@@ -24,10 +24,10 @@ class ExamVenueResource extends Resource
 
     protected static ?string $navigationGroup = 'System Settings';
 
-    public static function shouldRegisterNavigation(): bool
-    {
-        return checkReadExamVenuePermission();
-    }
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //     return checkReadExamVenuePermission();
+    // }
 
     public static function form(Form $form): Form
     {

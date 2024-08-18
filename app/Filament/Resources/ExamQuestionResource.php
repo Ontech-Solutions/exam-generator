@@ -55,10 +55,10 @@ class ExamQuestionResource extends Resource
 
     }
 
-    public static function shouldRegisterNavigation(): bool
-    {
-        return checkReadExamQuestionPermission();
-    }
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //     return checkReadExamQuestionPermission();
+    // }
 
 
     public static function form(Form $form): Form
