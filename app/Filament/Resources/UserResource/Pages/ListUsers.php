@@ -25,7 +25,7 @@ class ListUsers extends ListRecords
 
         $activity = AuditTrail::create([
             "user_id" => $user->id,
-            "module" => "Bank Names",
+            "module" => "Users",
             "activity" => "Viewed list of User's Page",
             "ip_address" => request()->ip()
         ]);
