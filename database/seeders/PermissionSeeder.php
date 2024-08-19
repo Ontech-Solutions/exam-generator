@@ -352,7 +352,7 @@ class PermissionSeeder extends Seeder
                 "create" => 1,
                 "read" => 1,
                 "update" => 1,
-                "delete" => 1
+                "delete" => 0
             ],
             [
                 "role_id" => 3,
