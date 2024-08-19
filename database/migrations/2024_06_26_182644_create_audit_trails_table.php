@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('audit_trails', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('module')->nullable();
             $table->text('activity')->nullable();
             $table->string('ip_address')->nullable();

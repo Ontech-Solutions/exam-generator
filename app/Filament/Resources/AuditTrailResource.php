@@ -34,10 +34,10 @@ class AuditTrailResource extends Resource
         return $query->orderBy('created_at', 'desc');
     }
 
-    public static function shouldRegisterNavigation(): bool
-    {
-        return checkReadAuthTrailsPermission();
-    }
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //     return checkReadAuthTrailsPermission();
+    // }
 
     public static function form(Form $form): Form
     {

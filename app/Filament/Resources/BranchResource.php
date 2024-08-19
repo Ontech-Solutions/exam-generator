@@ -56,15 +56,15 @@ class BranchResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                ->color('hyper')
-                        ->visible(function (){
-                        return checkUpdateBranchPermission();
-                    }),
+                ->color('hyper'),
+                    //     ->visible(function (){
+                    //     return checkUpdateBranchPermission();
+                    // }),
                 Tables\Actions\ViewAction::make()
-                    ->color('hyper')
-                            ->visible(function (){
-                            return checkReadBranchPermission();
-                        }), 
+                    ->color('hyper'),
+                        //     ->visible(function (){
+                        //     return checkReadBranchPermission();
+                        // }), 
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

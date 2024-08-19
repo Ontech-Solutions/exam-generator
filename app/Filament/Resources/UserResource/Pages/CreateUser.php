@@ -13,20 +13,20 @@ class CreateUser extends CreateRecord
 {
     protected static string $resource = UserResource::class;
 
-    public function mount(): void
-    {
-        $user = Auth::user();
-        abort_unless(checkCreateUserPermission(),403);
+    // public function mount(): void
+    // {
+    //     $user = Auth::user();
+    //     abort_unless(checkCreateUserPermission(),403);
 
-        $activity = AuditTrail::create([
-            "user_id" => $user->id,
-            "module" => "User",
-            "activity" => "Viewed Create User Page",
-            "ip_address" => request()->ip()
-        ]);
+    //     $activity = AuditTrail::create([
+    //         "user_id" => $user->id,
+    //         "module" => "User",
+    //         "activity" => "Created Users with record ID ".$this->record->id,
+    //         "ip_address" => request()->ip()
+    //     ]);
 
-        $activity->save();
-    }
+    //     $activity->save();
+    // }
 
     protected function getRedirectUrl(): string
     {
@@ -47,7 +47,7 @@ class CreateUser extends CreateRecord
         $activity = AuditTrail::create([
             "user_id" => Auth::user()->id,
             "module" => "User",
-            "activity" => "Created Business record with ID ".$this->record,
+            "activity" => "Created User record with ID ".$this->record->id,   
             "ip_address" => request()->ip()
         ]);
 

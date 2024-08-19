@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ExamPaperResource\Pages;
 
 use App\Filament\Resources\ExamPaperResource;
+use App\Models\AuditTrail;
 use App\Models\Competency;
 use App\Models\ExamPaper;
 use App\Models\ExamQuestion;
@@ -152,5 +153,20 @@ class ListExamPapers extends ListRecords
             return $this->generateRefNumber();
         }
         return $ref_number;
+    }
+
+    public function mount(): void
+    {
+        $user = Auth::user();
+        //abort_unless(checkCreateBankNamesPermission(),403);
+
+        $activity = AuditTrail::create([
+            "user_id" => $user->id,
+            "module" => "Exam Paper",
+            "activity" => "Viewed  Page",
+            "ip_address" => request()->ip()
+        ]);
+
+        $activity->save();
     }
 }
