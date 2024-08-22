@@ -38,10 +38,10 @@ class ExamPaperMarkingKeyResource extends Resource
             ->orderBy('updated_at', 'desc');
     }
 
-    public static function shouldRegisterNavigation(): bool
-    {
-        return checkReadExamPaperMarkingKeysPermission();
-    }
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //     return checkReadExamPaperMarkingKeysPermission();
+    // }
 
     public static function form(Form $form): Form
     {

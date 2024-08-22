@@ -49,7 +49,9 @@ class ListExamPapers extends ListRecords
                     // Get total count of questions
                     $totalProgramQuestions = ExamQuestion::where('program_id', $data['program_id'])->count();
 
-                    $totalExamPaperQuestions = ExamTotalQuestion::where("name", "default")->first()->total_questions;
+                    // $totalExamPaperQuestions = ExamTotalQuestion::where("name", "default")->first()->total_questions;
+                     // Explicitly set the total number of questions to generate to 150
+                    $totalExamPaperQuestions = 150;
 
                     Log::info("The Exam questions ".$totalProgramQuestions ." and Total Exam Questions ".$totalExamPaperQuestions);
 
@@ -76,7 +78,7 @@ class ListExamPapers extends ListRecords
                         $percentageValue = floatval($program_competence->weight);
 
                         // Step 3: Divide by 100 to get the decimal value
-                        $percentageDecimal = $percentageValue / 100;
+                        $percentageDecimal = $percentageValue / 150;
                         $total_competence_questions = $percentageDecimal * $totalExamPaperQuestions;
 
                         Log::info("Total Competence_questions => " . $total_competence_questions);
