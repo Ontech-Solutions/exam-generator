@@ -7,6 +7,7 @@ use App\Filament\Resources\ExamPaperResource\RelationManagers;
 use App\Models\ExamPaper;
 use App\Models\ExamTotalQuestion;
 use App\Models\Program;
+use App\Models\Province;
 use App\Models\User;
 use Doctrine\DBAL\Schema\Column;
 use Filament\Forms;
@@ -32,7 +33,7 @@ class ExamPaperResource extends Resource
     {
         $query = parent::getEloquentQuery();
 
-        return $query->select('id', 'ref_number', 'program_id', 'year', 'month', 'image', 'question','exam_sitting_date', 'option_a', 'option_b','option_c','option_d','option_e','correct_answer', 'user_id','created_at','updated_at')
+        return $query->select('id', 'ref_number', 'program_id','province_id', 'year', 'month', 'image', 'question','exam_sitting_date', 'option_a', 'option_b','option_c','option_d','option_e','correct_answer', 'user_id','created_at','updated_at')
             ->groupBy('ref_number')
             ->orderBy('updated_at', 'desc');
     }
@@ -60,11 +61,14 @@ class ExamPaperResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('ref_number')
+                    ->description(function ($record){
+                        return Province::where('id', $record->provincegit_id)->first()->name." Province" ?? "";
+                    })
                     ->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("program_id")
                     ->label("Program")
                     ->formatStateUsing(function ($record){
-                        return Program::where('id', $record->program_id)->first()->name ?? "";
+                        return Program::where('id', $record->province_id)->first()->name ?? "";
                     }),
                 Tables\Columns\TextColumn::make('exam_sitting_date')
                     ->label("Sitting Date/Time")

@@ -24,6 +24,7 @@ class ExamPaper extends Model
         "option_d",
         "option_e",
         "correct_answer",
-        "user_id"
+        "user_id",
+        "province_id"
     ];
 }

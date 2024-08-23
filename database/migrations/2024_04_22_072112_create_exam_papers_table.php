@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string("option_e")->nullable();
             $table->string("correct_answer")->nullable();
             $table->unsignedInteger("user_id")->nullable();
+            $table->unsignedInteger("province_id")->nullable();
             $table->timestamps();
         });
     }
