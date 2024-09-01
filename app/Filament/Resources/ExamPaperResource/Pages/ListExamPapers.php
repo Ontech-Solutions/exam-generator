@@ -42,7 +42,42 @@ class ListExamPapers extends ListRecords
                     DateTimePicker::make("exam_sitting_date")
 
                 ])
-                ->action(function ($data) {
+                ->action(function ($data){
+                    // Get all provinces
+                    $provinces = Province::all();
+
+                    foreach ($provinces as $province) {
+                        try {
+                            // Generate the reference number with the province code
+                            $new_ref_number = $this->generateRefNumber($province->code);
+                            Log::info("Generating exam paper with Ref Number " . $new_ref_number . " for Province " . $province->name);
+
+                            // Fetch the selected questions
+                            $selectedQuestionIds = $this->selectQuestions($data['program_id']);
+
+                            if (count($selectedQuestionIds) < 150) {
+                                throw new \Exception("Less than 150 questions selected for Province " . $province->name);
+                            }
+
+                            // Insert selected questions into the ExamPaper table
+                            $this->saveExamPaper($selectedQuestionIds, $new_ref_number, $data, $province->id);
+                            Log::info("Exam Paper Generated Successfully for Province " . $province->name);
+
+                        } catch (\Exception $e) {
+                            Log::error($e->getMessage());
+                            Notification::make()
+                                ->danger()
+                                ->title('Exam Paper Generation Failed')
+                                ->body('Failed to generate exam paper for Province ' . $province->name . ': ' . $e->getMessage());
+                        }
+                    }
+
+                    Notification::make()
+                        ->success()
+                        ->title('Exam Papers')
+                        ->body('Exam Papers Generated Successfully for all Provinces');
+                })
+                /*->action(function ($data) {
                     // Get all provinces
                     $provinces = Province::all();
 
@@ -141,11 +176,60 @@ class ListExamPapers extends ListRecords
                         ->body('Exam Papers Generated Successfully for all Provinces');
 
                     $this->redirect("exam-papers");
-                })
+                })*/
 
 
 
         ];
+    }
+
+    private function selectQuestions($program_id) {
+        $totalExamPaperQuestions = 150;
+        $selectedQuestionIds = [];
+
+        $program_competences = Competency::where("program_id", $program_id)->get();
+
+        foreach ($program_competences as $program_competence) {
+            $percentageDecimal = floatval($program_competence->weight) / 100;
+            $total_competence_questions = ceil($percentageDecimal * $totalExamPaperQuestions);
+
+            $questions = ExamQuestion::where('competency_id', $program_competence->id)
+                ->where('program_id', $program_id)
+                ->inRandomOrder()
+                ->take($total_competence_questions)
+                ->pluck('id')
+                ->toArray();
+
+            $selectedQuestionIds = array_merge($selectedQuestionIds, array_diff($questions, $selectedQuestionIds));
+        }
+
+        // Ensure exactly 150 questions
+        return array_slice($selectedQuestionIds, 0, $totalExamPaperQuestions);
+    }
+
+    private function saveExamPaper($selectedQuestionIds, $ref_number, $data, $province_id) {
+        foreach ($selectedQuestionIds as $questionId) {
+            $question = ExamQuestion::find($questionId);
+
+            $examPaper = new ExamPaper();
+            $examPaper->ref_number = $ref_number;
+            $examPaper->exam_sitting_date = $data["exam_sitting_date"];
+            $examPaper->program_id = $question->program_id;
+            $examPaper->competency_id = $question->competency_id;
+            $examPaper->year = $question->year;
+            $examPaper->month = $question->month;
+            $examPaper->image = $question->image;
+            $examPaper->question = $question->question;
+            $examPaper->option_a = $question->option_a;
+            $examPaper->option_b = $question->option_b;
+            $examPaper->option_c = $question->option_c;
+            $examPaper->option_d = $question->option_d;
+            $examPaper->option_e = $question->option_e;
+            $examPaper->correct_answer = $question->correct_answer;
+            $examPaper->user_id = Auth::user()->id;
+            $examPaper->province_id = $province_id;
+            $examPaper->save();
+        }
     }
 
     function generateRefNumber()
