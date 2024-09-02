@@ -61,9 +61,6 @@ class ExamPaperResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('ref_number')
-                    ->description(function ($record){
-                        return Province::where('id', $record->province_id)->first()->name." Province" ?? "";
-                    })
                     ->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("program_id")
                     ->label("Program")

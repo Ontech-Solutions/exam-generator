@@ -42,7 +42,7 @@ class ListExamPapers extends ListRecords
                     DateTimePicker::make("exam_sitting_date")
 
                 ])
-                ->action(function ($data){
+                /*->action(function ($data){
                     // Get all provinces
                     $provinces = Province::all();
 
@@ -76,17 +76,12 @@ class ListExamPapers extends ListRecords
                         ->success()
                         ->title('Exam Papers')
                         ->body('Exam Papers Generated Successfully for all Provinces');
-                })
-                /*->action(function ($data) {
-                    // Get all provinces
-                    $provinces = Province::all();
-
-                    // Loop through each province to generate an exam paper
-                    foreach ($provinces as $province) {
+                })*/
+                ->action(function ($data) {
                         // Generate the reference number with the province code
-                        $new_ref_number = $this->generateRefNumber($province->code);
+                        $new_ref_number = $this->generateRefNumber();
 
-                        Log::info("Generating exam paper with Ref Number " . $new_ref_number . " for Province " . $province->name . " and Program ID is " . $data['program_id']);
+
 
                         // Get total count of questions for the program
                         $totalProgramQuestions = ExamQuestion::where('program_id', $data['program_id'])->count();
@@ -96,8 +91,8 @@ class ListExamPapers extends ListRecords
 
                         // Check if there are enough questions in the database
                         if ($totalProgramQuestions < $totalExamPaperQuestions) {
-                            Log::info("The Exam questions " . $totalProgramQuestions . " is less than the intended " . $totalExamPaperQuestions . " for Province " . $province->name);
-                            continue; // Skip to the next province if not enough questions
+                            Log::info("The Exam questions " . $totalProgramQuestions . " is less than the intended " . $totalExamPaperQuestions . " for Province " . 1);
+                            // Skip to the next province if not enough questions
                         }
 
                         // Initialize an array to store selected question IDs
@@ -132,10 +127,16 @@ class ListExamPapers extends ListRecords
                         // Ensure that exactly 150 questions are selected
                         $selectedQuestionIds = array_slice($selectedQuestionIds, 0, $totalExamPaperQuestions);
 
-                        if (count($selectedQuestionIds) < $totalExamPaperQuestions) {
-                            Log::error("Error: Less than the required number of questions selected for Province " . $province->name);
-                            continue; // Skip to the next province if not enough questions
-                        }
+                    if (count($selectedQuestionIds) < $totalExamPaperQuestions) {
+                        $remainingQuestions = ExamQuestion::where('program_id', $data['program_id'])
+                            ->whereNotIn('id', $selectedQuestionIds)
+                            ->inRandomOrder()
+                            ->take($totalExamPaperQuestions - count($selectedQuestionIds))
+                            ->pluck('id')
+                            ->toArray();
+
+                        $selectedQuestionIds = array_merge($selectedQuestionIds, $remainingQuestions);
+                    }
 
                         Log::info("Success: Correct number of questions selected for Province " . $province->name);
 
@@ -161,14 +162,12 @@ class ListExamPapers extends ListRecords
                             $examPaper->option_e = $question->option_e;
                             $examPaper->correct_answer = $question->correct_answer;
                             $examPaper->user_id = Auth::user()->id;
-                            $examPaper->province_id = $province->id; // Store the province ID with the exam paper
+                            $examPaper->province_id = 1; // Store the province ID with the exam paper
 
                             // Save the ExamPaper record
                             $examPaper->save();
                         }
 
-                        Log::info("Exam Paper Generated Successfully for Province " . $province->name);
-                    }
 
                     Notification::make()
                         ->success()
@@ -176,7 +175,7 @@ class ListExamPapers extends ListRecords
                         ->body('Exam Papers Generated Successfully for all Provinces');
 
                     $this->redirect("exam-papers");
-                })*/
+                })
 
 
 
