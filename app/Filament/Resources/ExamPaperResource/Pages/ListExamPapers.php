@@ -209,12 +209,12 @@ class ListExamPapers extends ListRecords
 
     private function saveExamPaper($selectedQuestionIds, $ref_number, $data, $province_id) {
         foreach ($selectedQuestionIds as $questionId) {
-            $question = ExamQuestion::find($questionId);
+            $question = ExamQuestion::where('id',$questionId)->where('program_id', $data["program_id"]);
 
             $examPaper = new ExamPaper();
             $examPaper->ref_number = $ref_number;
             $examPaper->exam_sitting_date = $data["exam_sitting_date"];
-            $examPaper->program_id = $question->program_id;
+            $examPaper->program_id = $data["program_id"];
             $examPaper->competency_id = $question->competency_id;
             $examPaper->year = $question->year;
             $examPaper->month = $question->month;
